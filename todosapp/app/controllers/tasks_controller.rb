@@ -41,4 +41,14 @@ class TasksController < ApplicationController
       render json: message, status: 200
     end
   end
+
+  def update
+    if Task.exists?(params[:id])
+      task = Task.find(params[:id])
+      task.completed  = params[:completed]
+      task.save
+      render json: task, status: 200
+    end
+  end
+
 end

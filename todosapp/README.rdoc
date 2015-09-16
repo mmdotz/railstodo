@@ -2,6 +2,7 @@
 
 
 This app uses TASKS not TODO for a tables name, change URL accordingly
+For Hard Mode: Task was changed to id 2 as 1 was deleted
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
