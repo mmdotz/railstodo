@@ -22,15 +22,23 @@ class TasksController < ApplicationController
 
   def create
     #For create to work, we must *require* that a parameter is sent with the name 'task'
-    if params[:task].nil? || params[:task].empty?
-      err_msg = "The 'message' parameter was empty or not found"
+    if params[:task].empty?
+      err_msg = "The 'task' parameter was empty or not found"
       render json: { error_msg: err_msg }.to_json, status: 422
     else
-      # task = Task.create(task: params[:task])
       task = Task.new
       task.task = params[:task]
-      task.save
-      render json: task.to_json, status: 201
+      task.save!
+      render json: task
+    end
+  end
+
+  def destroy
+    if Task.exists?(params[:id])
+      task = Task.find(params[:id])
+      task.destroy
+      message = "Task #{task} was deleted."
+      render json: message, status: 200
     end
   end
 end
