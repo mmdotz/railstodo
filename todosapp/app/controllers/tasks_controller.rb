@@ -5,8 +5,13 @@ class TasksController < ApplicationController
     render json: tasks.to_json, status: 200
   end
 
+  def new
+    tasks = Task.new
+    render json: tasks.to_json, status: 200
+  end
+
   def show
-    # render text: "params : #{params.inspect}"
+    render text: "params : #{params.inspect}"
     if Task.exists?(params[:id])
       task = Task.find(params[:id])
       render json: task.to_json, status: 200
