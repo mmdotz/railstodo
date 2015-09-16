@@ -1,4 +1,13 @@
 Rails.application.routes.draw do
+
+
+  get    '/tasks',     to: 'tweets#index'
+  get    '/tasks/:id', to: 'tweets#show'
+  post   '/tasks',     to: 'tweets#create'
+  put    '/tasks/:id', to: 'tweets#update'
+  delete '/tasks/:id', to: 'tweets#destroy'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
