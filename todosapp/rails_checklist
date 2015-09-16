@@ -1,0 +1,42 @@
+Checklist for app creation and implementation
+
+1. Copy the model from the model-skeleton exactly
+2. Map out your table on paper
+3. Map out you model on paper
+4. rails new projectname
+5. rails generate migration ActionTakenByMigration
+  a. check that file was created by opening for review, save
+  b. creates a YYYYMMDDHHMMSS__filename__.rb
+  c. create table (if not done during rails generate migration)
+  d. class ActionTakenByMigration < ActiveRecord::Migration created inside file
+
+
+6. Create model inside app/models
+  a. naming convention class SingularClassname < ActiveRecord::Base...end
+  b. save ex: singlename.rb
+
+7. Create controller app/controllers
+  a. naming convention class PLuralsController < ApplicationController...end
+  b. pluralname_controller.rb
+
+7. rake db:migrate
+  a. error: check that class, def and do all have ends
+8. create seeds in db/migrate/seeds.rb
+9. rake db:seed    (singular!)
+10. in app/controllers create controller
+  a. ex: class UsersController < ApplicationController
+  b. saved as ex: users_controller.rb
+  c. CRUD actions/HTTP verbs are methods saved here: #index, #show, #create, #update, #destroy
+  d. ex: def index
+          render some json
+         end
+
+11. in config/routes.rb create routes for #index, #show, #create, #update, #destroy
+  a. ex: Rails application.routes.draw do
+        get('/users', { to: 'users#index' } )
+
+12. rails server or rails s
+13. go to localhost:3000 in browser's address line
+
+
+
