@@ -1,5 +1,8 @@
 == README
 
+
+This app uses TASKS not TODO for a tables name, change URL accordingly
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
